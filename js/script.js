@@ -37,13 +37,13 @@ let currentImageIndex = 0;
 showCurrentImage();
 
 // Gestione del clic sul pulsante "Prev"
-document.querySelector('.my-previous').addEventListener('click', () => {
+const prev = document.querySelector('.my-previous').addEventListener('click', () => {
   currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
   showCurrentImage();
 });
 
 // Gestione del clic sul pulsante "Next"
-document.querySelector('.my-next').addEventListener('click', () => {
+const next = document.querySelector('.my-next').addEventListener('click', () => {
   currentImageIndex = (currentImageIndex + 1) % images.length;
   showCurrentImage();
 });
@@ -62,4 +62,6 @@ function showCurrentImage() {
           </div>
       </div>
   `;
-}
+};
+
+
