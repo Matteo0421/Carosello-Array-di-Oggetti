@@ -31,24 +31,25 @@ const output = document.querySelector('.output');
 const thumbnails = document.querySelectorAll('.my-thumbnail');
 let currentImageIndex = 0;
 
-
-
-// Mostra l'immagine iniziale
+// Mostriamo l'immagine iniziale
 showCurrentImage();
+thumbnails[currentImageIndex].classList.add('active');
 
-// Gestione del clic sul pulsante "Prev"
-const prev = document.querySelector('.my-previous').addEventListener('click', () => {
+// Gestione del click sul pulsante "Prev"
+document.querySelector('.my-previous').addEventListener('click', () => {
+  thumbnails[currentImageIndex].classList.remove('active');
   currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
   showCurrentImage();
+  thumbnails[currentImageIndex].classList.add('active');
 });
 
-// Gestione del clic sul pulsante "Next"
-const next = document.querySelector('.my-next').addEventListener('click', () => {
+// Gestione del click sul pulsante "Next"
+document.querySelector('.my-next').addEventListener('click', () => {
+  thumbnails[currentImageIndex].classList.remove('active');
   currentImageIndex = (currentImageIndex + 1) % images.length;
   showCurrentImage();
+  thumbnails[currentImageIndex].classList.add('active');
 });
-
-
 
 // Funzione per visualizzare l'immagine corrente
 function showCurrentImage() {
@@ -62,6 +63,4 @@ function showCurrentImage() {
           </div>
       </div>
   `;
-};
-
-
+}
